@@ -108,6 +108,9 @@ app.get('/about', (req, res) => {
     res.render('static/about');
 })
 
+app.get('/', (req, res) => {
+    res.redirect("/blogs");
+});
 
 app.all('*', (req, res, next) => {
     next(new ExpressError('Page Not Found'), 404)
