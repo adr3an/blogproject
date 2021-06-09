@@ -96,7 +96,7 @@ app.use(helmet(
     }
 ));
 
-app.get('/', (req, res) => {
+app.get('/', async (req, res) => {
     allBlogs = await Blog.find({});
     res.render('blogs/all', { allBlogs });
 });
