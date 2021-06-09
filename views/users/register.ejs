@@ -1,0 +1,56 @@
+<% layout('./layouts/boilerplate') %>
+
+
+<div class="row">
+    <div class="col-md-6 offset-md-3 my-5 col-xl-4 offset-xl-4">
+        <div class="card shadow">
+            <img src="https://pbs.twimg.com/profile_images/1344096899800981507/J7YeWJPs_400x400.jpg"
+                class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title text-muted">
+                    Register
+                </h5>
+                <form action="/register" class="needs-validation" method="POST" novalidate>
+                    <div class="mb-3">
+                        <label for="username" class="form-label">Username:</label>
+                        <input type="text" class="form-control" id="username" name="username"
+                            placeholder="Enter username:" required>
+                        <div class="valid-feedback">
+                            Looks good!
+                        </div>
+                        <div class="invalid-feedback">
+                            Cnnot be blank!
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email:</label>
+                        <input type="email" class="form-control" id="email" name="email"
+                            placeholder="Enter email address" required>
+                        <div class="valid-feedback">
+                            Looks good!
+                        </div>
+                        <div class="invalid-feedback">
+                            Must be a valid email
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Password:</label>
+                        <input type="password" name="password" class="form-control" id="password"
+                            placeholder="Enter Password" required>
+                        <div class="valid-feedback">
+                            Looks good!
+                        </div>
+                        <div class="invalid-feedback">
+                            Cnnot be blank!
+                        </div>
+                    </div>
+
+                    <div class="d-grid gap-2">
+                        <button class="btn btn-success">Register</button>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>

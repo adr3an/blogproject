@@ -1,0 +1,76 @@
+<% layout('./layouts/boilerplate') %>
+
+
+<h1 class='text-center my-5'><%=blog.title %></h1>
+<div class="row">
+    <div class="col-md-8">
+        <div class="card mb-3">
+
+            <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+
+                <div class="carousel-inner">
+                    <% blog.images.forEach((img, i)=>{ %>
+                    <div class="carousel-item <%= i === 0 ? 'active' : '' %>">
+                        <a href="/blogs/<%= blog._id %>">
+                            <img src="<%= img.url %>" class="d-block w-100" alt="...">
+                        </a>
+                    </div>
+                    <% }) %>
+                </div>
+                <% if(blog.images.length > 1){ %>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+                <% } %>
+            </div>
+            <div class="card-body">
+                <p class="card-text"><small class="text-muted">A caption for the above image.</small></p>
+            </div>
+
+        </div>
+        <p>
+            <%= blog.post %>
+        </p>
+    </div>
+
+    <div class="col-md-4 ">
+        <div class="sticky-top mb-5">
+            <h3 class='text-center mb-3'>ABOUT ME</h3>
+            <div class="text-center">
+                <figure class="figure">
+                    <img src="https://pbs.twimg.com/profile_images/1344096899800981507/J7YeWJPs_400x400.jpg"
+                        class="figure-img rounded-circle img-thumbnail" alt="..." width='250'>
+                    <figcaption class="figure-caption">A caption for the above image.</figcaption>
+                </figure>
+            </div>
+            <p class="text-center mb-5">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Assumenda, tempore.
+                Aspernatur
+                accusamus
+                officiis tenetur fugit unde inventore delectus! Itaque eveniet rati</p>
+
+            <h3 class='text-center'> Follow Me</h3>
+            <p class="text-center text-muted"> Feel free to join me on my social networks </p>
+            <div class="d-flex justify-content-around mb-5">
+                <div style=" font-size: 3em; color: #8a3ab9;"> <a
+                        href="https://www.instagram.com/aaliyahcunningham_/?hl=en" target="_blank"><i
+                            class="fab fa-instagram "></i></a>
+                </div>
+                <div style="font-size: 3em; color: #3b5998;"> <a href="https://twitter.com/aaliyah_speaks"
+                        target="_blank">
+                        <i class="fab fa-facebook-square "></i></a>
+                </div>
+                <div style="font-size: 3em; color: #00acee;"> <a href="https://www.facebook.com/aaliyah.cunningham.7"
+                        target="_blank"> <i class="fab fa-twitter-square "></i></a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

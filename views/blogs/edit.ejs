@@ -1,0 +1,48 @@
+<% layout('layouts/boilerplate') %>
+
+
+<h1 class="text-center text-muted my-5 mb-5">Edit Blog Post</h1>
+<form class="mb-5 needs-validation" action="/blogs/<%= blog._id %>?_method=PUT" method="POST" novalidate
+    enctype="multipart/form-data">
+    <div class="mb-3">
+        <label for="title" class="form-label">Title:</label>
+        <input type="text" class="form-control" id="title" name="blog[title]"
+            placeholder="Enter the title of the Blog Post here" value="<%= blog.title %>" required>
+        <div class="valid-feedback">
+            Looks good!
+        </div>
+        <div class="invalid-feedback">
+            Cnnot be blank!
+        </div>
+    </div>
+    <div class="mb-3">
+        <label for="image" class="form-label">Add Images:</label>
+        <input class="form-control" name="image" type="file" id="image" multiple>
+    </div>
+    <div class="mb-3">
+        <label for="post" class="form-label">Post:</label>
+        <textarea name="blog[post]" class="form-control" id="post" rows="10" placeholder="Type your heart out!"
+            required> <%= blog.post %></textarea>
+        <div class="valid-feedback">
+            Looks good!
+        </div>
+        <div class="invalid-feedback">
+            Cnnot be blank!
+        </div>
+    </div>
+    <div class="mb-3">
+        <% blog.images.forEach(function (img, i){%>
+        <img src="<%= img.thumbnail%>" class="img-thumbnail" alt="">
+        <div class=" form-check-inline">
+            <input type="checkbox" id="image-<%=i%>" value="<%=img.filename%>" name="deleteImages[]">
+        </div>
+        <label for="image-<%=i%>">Delete?</label>
+        <% })  %>
+    </div>
+
+    <div class="d-grid gap-2">
+        <button class="btn btn-success">Submit</button>
+    </div>
+
+
+</form>
