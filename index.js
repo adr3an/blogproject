@@ -126,9 +126,9 @@ app.use((err, req, res, next) => {
 app.use(mongoSanitize({
     replaceWith: '_'
 }))
-const port = process.env.Port;
-app.listen(port, () => {
-    console.log(`Port ${port} is live`);
+
+app.listen(process.env.PORT, () => {
+    console.log(`Port is live`);
 });
 
 
