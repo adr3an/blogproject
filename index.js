@@ -96,6 +96,11 @@ app.use(helmet(
     }
 ));
 
+app.get('/', (req, res) => {
+    allBlogs = await Blog.find({});
+    res.render('blogs/all', { allBlogs });
+});
+
 app.use("/blogs", blogRoutes);
 app.use("/", userRoutes);
 
@@ -108,9 +113,7 @@ app.get('/about', (req, res) => {
     res.render('static/about');
 })
 
-app.get('/', (req, res) => {
-    res.redirect("/blogs");
-});
+
 
 app.all('*', (req, res, next) => {
     next(new ExpressError('Page Not Found'), 404)
