@@ -120,9 +120,9 @@ app.use((err, req, res, next) => {
 app.use(mongoSanitize({
     replaceWith: '_'
 }))
-
-app.listen(3000, () => {
-    console.log("Port 3000 is live");
+const port = process.env.Port || 3000;
+app.listen(port, () => {
+    console.log(`Port ${port} is live`);
 });
 
 
